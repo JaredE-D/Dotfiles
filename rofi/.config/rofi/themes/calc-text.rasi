@@ -1,0 +1,86 @@
+
+/* Text-only calculator theme: clean, readable, no icons */
+
+configuration {
+  show-icons: false;
+  drun-display-format: "{name}";
+  display-calc: "Calc";
+  font: "JetBrains Mono 14";
+}
+
+* {
+  bg:       #0b0d10;
+  fg:       #e7e7e7;
+  muted:    #9aa4b2;
+  selbg:    #1a2230;
+  selfg:    #e7e7e7;
+  border:   #2a3342;
+
+  background-color: transparent;
+  text-color: @fg;
+}
+
+window {
+  location: center;
+  width: 800px;
+  border: 2px;
+  border-color: @border;
+  background-color: @bg;
+  padding: 18px;
+  border-radius: 14px;
+}
+
+mainbox {
+  spacing: 12px;
+  padding: 0px;
+}
+
+inputbar {
+  background-color: #0f131a;
+  border: 2px;
+  border-color: @border;
+  border-radius: 12px;
+  padding: 10px 12px;
+  spacing: 10px;
+}
+
+prompt {
+  text-color: @muted;
+}
+
+entry {
+  placeholder: "";
+  placeholder-color: @muted;
+}
+
+message {
+  background-color: transparent;
+}
+
+listview {
+  background-color: transparent;
+  lines: 10;
+  columns: 1;
+  fixed-height: false;
+  spacing: 6px;
+  scrollbar: false;
+}
+
+element {
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: @fg;
+}
+
+element selected {
+  background-color: @selbg;
+  text-color: @selfg;
+}
+
+textbox {
+  text-color: @muted;
+}

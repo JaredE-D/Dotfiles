@@ -5,9 +5,9 @@
     //"width": 1920, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "pulseaudio", "backlight", "custom/edit-waybar", "custom/edit-hypr"],
+    "modules-left": ["hyprland/workspaces", "pulseaudio", "backlight", "custom/edit-waybar", "custom/edit-hypr", "clock"],
     "modules-center": ["hyprland/window"], 
-    "modules-right": ["hyprland/submap","clock", "cpu", "memory", "temperature", "battery", "power-profiles-daemon", "tray"], 
+    "modules-right": ["hyprland/submap","cpu", "memory", "temperature", "battery", "power-profiles-daemon", "tray"], 
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": true,
@@ -94,8 +94,14 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "format": "{:%H:%M - %d/%m/%Y - %A}",
+        "format-alt": "{:%A, %B %d, %Y (%R)",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "calendar": {
+            "mode"    : "year",
+            "mode-mon-col" : 3,
+            "on-scroll"    : 1
+        }
     },
     "cpu": {
         "format": "{usage}% ",

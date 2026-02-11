@@ -1,0 +1,112 @@
+* {
+  bg:       rgba(0, 0, 0, 0.40);   /* main panel */
+  bg2:      rgba(0, 0, 0, 0.25);   /* input bar */
+  fg:       rgba(240, 240, 240, 0.95);
+  fg2:      rgba(200, 200, 200, 0.85);
+
+  selbg:    rgba(255, 255, 255, 0.14);
+  selfg:    rgba(255, 255, 255, 1.00);
+
+  border:   rgba(255, 255, 255, 0.10);
+  radius:   0px;
+}
+
+window {
+  /* larger on screen */
+  width: 800px;
+  height: 800px;
+  padding: 18px;
+
+  border: 1px;
+  border-color: @border;
+  border-radius: @radius;
+
+  background-color: @bg;
+
+  location: center;
+  anchor: center;
+}
+
+mainbox {
+  background-color: transparent;
+  spacing: 12px;
+}
+
+
+
+inputbar {
+  background-color: @bg2;
+  text-color: @fg;
+  border-radius: 16px;
+
+  /* tighter input */
+  padding: 10px 12px;
+}
+
+prompt { 
+  enabled: true; 
+  background-color: transparent;
+  padding: 0px 5px;
+}
+
+entry {
+  text-color: @fg;
+  placeholder: "Search…";
+  placeholder-color: @fg2;
+  background-color: transparent;
+}
+
+listview {
+  /* 4x4 grid */
+  columns: 4;
+  lines: 4;
+
+  fixed-height: true;
+  layout: vertical;
+
+  /* tighter grid spacing */
+  spacing: 6px;
+  padding: 6px;
+
+  background-color: transparent;
+  scrollbar: false;
+}
+
+/* Each tile: fully transparent */
+element {
+  orientation: vertical;
+  background-color: transparent;
+  border-radius: 18px;
+
+  padding: 8px;
+
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+}
+
+
+/* Only show a subtle selection highlight */
+element selected {
+  background-color: @selbg;
+  text-color: @selfg;
+}
+
+element-text {
+  enabled: true;
+  font: "Inter 9";
+  text-color: @fg2;
+  background-color: transparent;
+  horizontal-align: 0.5;
+  vertical-align: 1.0;
+  padding-top: 4px;
+}
+
+element-icon {
+  size: 90px;               /* try 48px if you want even denser */
+  horizontal-align: 0.5;
+  vertical-align: 0.0;
+  margin-bottom: 0px;
+  background-color: transparent;
+}
+
+
