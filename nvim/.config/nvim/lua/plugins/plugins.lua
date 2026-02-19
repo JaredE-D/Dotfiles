@@ -1,8 +1,4 @@
 --
--- In your plugin files, you can:
--- * add extra plugins
--- * disable/enabled LazyVim plugins
--- * override the configuration of LazyVim plugins
 return {
 
   -- change trouble config
@@ -37,9 +33,24 @@ return {
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
+      local cmp = require("cmp")
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<CR>"] = cmp.config.disable,
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-j>"] = cmp.mapping(function(fallback) end, { "i", "s" }),
+      })
     end,
   },
 
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "super-tab", -- this preset sets <CR> to accept
+      },
+    },
+  },
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
