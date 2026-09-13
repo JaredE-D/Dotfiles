@@ -1,6 +1,6 @@
 @define-color base00 #181818;
-@define-color base01 #2b2e37;
-@define-color base02 #3b3e47;
+@define-color base01 #131413;
+@define-color base02 #1E1D2E;
 @define-color base03 #585858;
 @define-color base04 #b8b8b8;
 @define-color base05 #d8d8d8;
@@ -15,97 +15,163 @@
 @define-color base0E #ba8baf;
 @define-color base0F #a16946;
 
+/* ===================================================================
+   THEME ACCENT
+   Change just this one line to retheme all waybar text.
+   Currently matched to Hyprland's col.active_border blue
+   (~/.dotfiles/hyprland/.config/hypr/hyprland.conf, rgba(33ccffee)).
+   =================================================================== */
+@define-color accent #33ccff;
+
 * {
   transition: none;
   box-shadow: none;
-	font-family: 'terminus', sans-serif;
+  border: none;
+  font-family: 'Source Code Pro', 'terminus', sans-serif;
+  font-size: 13px;
 }
 
 #waybar {
-	font-family: 'Source Code Pro', sans-serif;
-	font-size: 1.2em;
-	font-weight: 400;
-  color: @base04;
   background: @base01;
+  color: @accent;
 }
 
+/* Base pill styling shared by all modules */
+#workspaces,
+#custom-volume,
+#custom-mic,
+#custom-backlight,
+#custom-config,
+#clock,
+#submap,
+#custom-stats-toggle,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#power-profiles-daemon,
+#custom-tray-toggle,
+#tray {
+  margin: 5px 2px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background-color: @base02;
+  min-height: 20px;
+}
+
+/* Workspaces */
 #workspaces {
-  margin: 0 4px;
+  margin: 5px 4px;
+  padding: 0 4px;
 }
 
 #workspaces button {
-  margin: 4px 0;
+  margin: 0 2px;
   padding: 0 4px;
-  color: @base05;
-}
-
-#workspaces button.visible {
+  color: @accent;
+  border-radius: 4px;
 }
 
 #workspaces button.active {
-  border-radius: 4px;
-  background-color: @base02;
+  background-color: @accent;
+  color: @base01;
 }
 
 #workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
+  color: @base08;
 }
 
-#tray {
-  margin: 4px 4px 4px 4px;
-  border-radius: 4px;
-  background-color: @base02;
+/* Bar-graph modules (volume / mic / backlight) */
+#custom-volume,
+#custom-mic,
+#custom-backlight {
+  font-family: 'Source Code Pro', monospace;
+  color: @accent;
 }
 
-#tray * {
-  padding: 0 6px;
-  border-left: 1px solid @base00;
+#custom-volume.muted,
+#custom-mic.muted {
+  color: @base03;
 }
 
-#tray *:first-child {
-  border-left: none;
+#custom-backlight.night-light {
+  color: @base09;
 }
 
-#power-profiles-daemon, #mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail,  #temperature, #language, #custom-edit-hypr, #custom-edit-waybar{
-  margin: 4px 2px;
-  padding: 0 6px;
-  /* background-color: @base02; */
-  border-left: 1px solid grey;
-  min-width: 20px;
+/* Config picker button */
+#custom-config {
+  color: @accent;
+  font-weight: 700;
 }
+
+#custom-config:hover {
+  background-color: @accent;
+  color: @base01;
+}
+
+/* Clock */
 #clock {
-  margin: 10px 2px;
-  padding: 2px 6px;
-  /* background-color: @base02; */
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  min-width: 20px;
-}
-#pulseaudio.muted {
-  color: @base0F;
+  margin: 5px 4px 5px 6px;
+  color: @accent;
+  font-weight: 500;
 }
 
-#pulseaudio.bluetooth {
-  color: @base0C;
+/* Window title */
+#window {
+  font-size: 1em;
+  font-weight: 400;
+  color: @accent;
 }
 
-#clock {
-  margin-left: 0px;
-  margin-right: 4px;
-  background-color: transparent;
+/* Submap indicator, only visible when active */
+#submap {
+  color: @base0A;
+}
+
+/* Expandable groups */
+#custom-stats-toggle,
+#custom-tray-toggle {
+  color: @accent;
+}
+
+.drawer-child {
+  margin-left: 2px;
+}
+
+#cpu, #memory, #temperature, #battery {
+  margin: 5px 0;
 }
 
 #temperature.critical {
-  color: @base0F;
+  color: @base08;
 }
 
-#window {
-  font-size: 1em;
-	font-weight: 400;
+/* Battery is shown directly in the bar */
+#battery {
+  color: @accent;
+  font-weight: 600;
 }
 
-#language {
-	font-size: 0.9em;
-	font-weight: 500;
-	letter-spacing: -1px;
+#battery.warning {
+  color: @base0A;
+}
+
+#battery.critical {
+  color: @base08;
+}
+
+/* Power profile stays standalone and prominent */
+#custom-power-profile {
+  color: @accent;
+  font-weight: 700;
+}
+
+/* System tray */
+#tray {
+  margin: 5px 0;
+  padding: 0 6px;
+}
+
+#tray > * {
+  padding: 0 4px;
 }

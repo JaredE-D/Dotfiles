@@ -1,0 +1,21 @@
+# Shell / editor state not meant for the repo
+.bash_profile
+.bashrc
+.profile
+.zprofile
+.zshrc
+.ripgreprc
+.idea
+.vscode
+
+# Files that may contain tokens, API keys or personal identifiers
+.gitconfig
+.mcp.json
+.claude/
+.gitmodules
+
+# Private Hyprland values (personal URLs etc.), sourced from hyprland.conf
+hyprland/.config/hypr/private.conf
+
+# Fish universal-variable cache churns and records local plugin/paths
+fish/.config/fish/fish_variables
